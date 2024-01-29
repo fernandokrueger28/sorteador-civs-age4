@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sorteador de civilizações AGE4</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+<style>
+*{
+  font-family: Inknut Antiqua;
+  color:#F2CB83 ;
+}
+
+body {
+  background-image: url(telainicial.png);
+  overflow-y: hidden;
+}
+::-webkit-scrollbar {
+ display: none;
+}
+
+.menu {
+  background: rgb(44,59,77);
+  background: linear-gradient(90deg, rgba(44,59,77,1) 0%, rgba(32,41,56,1) 100%);
+  height: 40px;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 360px ;
+  
+}
+
+.menutexto {
+  color: #E9B777;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 32px;
+  line-height: normal;
+  padding-right: 25px;
+  padding-left: 25px;
+  display: block;
+  min-width: 530px;
+}
+
+.paginaprincipal{
+  width: 100%px;
+  height: 690px;
+  background: #1F2836;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 40px;
+  margin-top: 60px;
+  border-radius: 5px;
+  border: 2px solid #F2CB83;
+  padding: 10px;
+}
+
+.menuzinho{
+  height: 690px;
+  width: 150px;
+  border: 3px solid #F2CB83;
+}
+
+.dourado{
+  color:#F2CB83 ;
+}
+
+.inputnome{
+  border: 2px solid #F2CB83;
+
+}
+.botaonjogadores{
+ background-color: #06496C;
+ width: 128px;
+ height: 40px;
+ border-radius: 5px;
+}
+.botaonjogadores:hover {
+  border: 2px solid #F2CB83;
+  background-color:#06496C ;
+}
+.botaonjogadores2{
+ background-color: #06496C;
+ width: 128px;
+ height: 60px;
+ border-radius: 5px;
+}
+.botaonjogadores2:hover {
+  border: 2px solid #F2CB83;
+  background-color:#06496C ;
+}
+
+.principal {
+   
+  margin-left: 150px;
+  margin-top: -586px;
+  height: 64px;
+  width: 100%;
+  
+}
+
+
+.nomejogadores {
+  
+   border: 2px solid #F2CB83;
+  background-color: black ;
+  text-transform: uppercase;
+
+
+  
+}
+
+.resultado{
+  
+  display: flex;
+  width: 1000px;
+  height: 70px;
+  margin-left: 210px;
+  margin-top: -40px;
+  padding-top: 10px;
+ 
+}
+
+.botaosortear{
+  margin-top: 60px;
+  
+}
+.texto-resultado{
+  
+}
+
+.imagem-resultado{
+  margin-top: -20px;
+  margin-left: 400px;
+  
+  position: absolute;
+  height: 65px;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+ a{
+  text-decoration: none;
+  font-family: Inknut Antiqua;
+  color:#F2CB83
+ }
+ a:hover{
+  
+  text-decoration: none;
+  color:#F2CB83;
+  text-shadow: 0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD;
+
+
+ }
+ img {
+            width: 180px;
+            height: 160px;
+            
+           
+        }
+
+.botaosorteio{
+
+ background-color: #06496C;
+ height: 35px;
+ border-radius: 5px;
+ width: 30%;
+ margin-left: 35%;
+ margin-top: -30px;
+
+}
+.botaosorteio:hover {
+  border: 2px solid #F2CB83;
+  background-color:#06496C ;
+}
+
+.divisorias1{
+  width: 100%;
+  height: 160px;
+}
+
+.divisorias2{
+  width: 100%;
+  height: 160px;
+  margin-top: -25px;
+}
+
+.divisorias3{
+  width: 100%;
+  height: 160px;
+  margin-top: -25px;
+}
+#resultado {
+  font-size: 30px;
+  border:2px solid #F2CB83 ;
+  width: 80%;
+  margin-left: 10%;
+  padding: 10px;
+  
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+  <div class="menu d-flex justify-content-start">
+    <span class="menutexto"><a href="escolher_civ_age.html" >SORTEADOR DE CIVILIZAÇÕES</a></span>
+    <span class="menutexto"><a href="escolher_mapas_age.html">SORTEADOR DE BIOMAS</a></span>
+  </div>
+
+<div class="paginaprincipal row">
+
+   
+        
+   
+
+  <div class="divisorias1 d-flex justify-content-around">
+    <img id="colinas_de_calcario" src="colinas_de_calcario.png">
+    <img id="deserto_de_gobi" src="deserto_de_gobi.png">
+    <img id="deserto_do_saara" src="deserto_do_saara.png"></div>
+  <div class="divisorias2 d-flex justify-content-around">
+    <img id="estepes" src="estepes.png">
+    <img id="mediterraneo" src="mediterraneo.png">
+    <img id="primavera_japonesa" src="primavera_japonesa.png"></div>
+  <div class="divisorias3 d-flex justify-content-around">
+    <img id="savana" src="savana.png">
+    <img id="temperado_europeu" src="temperado_europeu.png">
+    <img id="temperado_asiatico" src="temperado_asiatico.png"></div>
+
+    <button class="botaosorteio r" onclick="iniciarSorteio()">Iniciar Sorteio</button>
+    <!--  --><p class="d-block justify-content-center" id="resultado"></p>
+</div>
+    <script>
+        var imagens = ["colinas_de_calcario", "deserto_de_gobi", "deserto_do_saara", "estepes", "mediterraneo", "primavera_japonesa", "savana", "temperado_europeu", "temperado_asiatico"];
+        
+        function iniciarSorteio() {
+            // Limpar os resultados anteriores
+            for (var i = 0; i < imagens.length; i++) {
+                document.getElementById(imagens[i]).style.border = "none";
+            }
+            document.getElementById("resultado").textContent = "";
+
+            var indice = 0;
+            var intervalo = 50; // Iniciar com um intervalo de 50ms
+            var sorteio;
+            var tempoTotal = Math.random() * 5000 + 5000; // Tempo total do sorteio entre 5 e 10 segundos
+            var tempoPassado = 0;
+
+            function alterarBorda() {
+                // Remover a borda da imagem anterior
+                if (indice > 0) {
+                    document.getElementById(imagens[indice - 1]).style.border = "none";
+                } else if (indice === 0) {
+                    document.getElementById(imagens[imagens.length - 1]).style.border = "none";
+                }
+
+                // Adicionar borda à imagem atual
+                document.getElementById(imagens[indice]).style.border = "5px solid red";
+
+                // Incrementar o índice
+                indice++;
+
+                // Se o índice for maior que o número de imagens, reiniciar o índice
+                if (indice >= imagens.length) {
+                    indice = 0;
+                }
+
+                // Incrementar o tempo passado
+                tempoPassado += intervalo;
+
+                // Se o tempo passado for maior que o tempo total, parar o sorteio
+                if (tempoPassado >= tempoTotal) {
+                    clearInterval(sorteio);
+                    // Calcular o índice do resultado
+                    var indiceResultado = indice - 1;
+                    if (indiceResultado < 0) {
+                        indiceResultado = imagens.length - 1;
+                    }
+                    // Limpar a borda vermelha da última imagem
+                    document.getElementById(imagens[indice]).style.border = "none";
+                    document.getElementById(imagens[indiceResultado]).style.border = "5px solid green";
+                    document.getElementById("resultado").textContent = "O resultado do sorteio é: " + imagens[indiceResultado];
+                } else {
+                    // Ajustar o intervalo para desacelerar a mudança de borda
+                    intervalo = 50 + (tempoPassado / tempoTotal) * 950; // Ajustar para que o intervalo seja uma função quadrática do tempo passado
+                    clearInterval(sorteio);
+                    sorteio = setInterval(alterarBorda, intervalo);
+                }
+            }
+
+            // Iniciar o sorteio
+            sorteio = setInterval(alterarBorda, intervalo);
+        }
+    </script>
+</body>
+</html>
+
+
+

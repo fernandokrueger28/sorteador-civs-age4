@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sorteador de civilizações AGE4</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+<style>
+*{
+  font-family: Inknut Antiqua;
+  color:#F2CB83 ;
+}
+
+body {
+  background-image: url(telainicial.png);
+  overflow-y: hidden;
+}
+::-webkit-scrollbar {
+ display: none;
+}
+
+.menu {
+  background: rgb(44,59,77);
+  background: linear-gradient(90deg, rgba(44,59,77,1) 0%, rgba(32,41,56,1) 100%);
+  height: 40px;
+  width: 100%;
+  margin-top: 100px;
+  margin-left: 360px ;
+  
+}
+
+.menutexto {
+  color: #E9B777;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 32px;
+  line-height: normal;
+  padding-right: 25px;
+  padding-left: 25px;
+  display: block;
+  min-width: 530px;
+}
+
+.paginaprincipal{
+  width: 100%;
+  height: 690px;
+  background: #1F2836;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-left: 40px;
+  margin-top: 60px;
+  border-radius: 5px;
+  border: 2px solid #F2CB83;
+  box-shadow: 1px 10px 10px black;
+}
+
+.menuzinho{
+  height: 690px;
+  width: 150px;
+  border: 2px solid #F2CB83;
+  margin-top: -2px;
+  margin-left: -2px;
+}
+
+.dourado{
+  color:#F2CB83 ;
+}
+
+.inputnome{
+  border: 2px solid #F2CB83;
+  position: static;
+  z-index: 5;
+  margin-top: -5px;
+  border-radius: 3px;
+
+}
+.botaonjogadores{
+ background-color: #06496C;
+ width: 128px;
+ height: 40px;
+ border-radius: 5px;
+}
+.botaonjogadores:hover {
+  border: 2px solid #F2CB83;
+  background-color:#06496C ;
+}
+.botaonjogadores2{
+ background-color: #06496C;
+ width: 128px;
+ height: 60px;
+ border-radius: 5px;
+}
+.botaonjogadores2:hover {
+  border: 2px solid #F2CB83;
+  background-color:#06496C ;
+}
+
+.principal {
+   
+  margin-left: 180px;
+  margin-top: -645px;
+  height: 64px;
+  width: 100%;
+    position: static;
+  z-index: 1;
+}
+
+
+.nomejogadores {
+  
+   border: 2px solid #F2CB83;
+  background-color: black ;
+  text-transform: uppercase;
+    position: static;
+  z-index: 5;
+  border-radius: 3px;
+
+  
+}
+
+.resultado{
+  
+  display: flex;
+  width: 1000px;
+  height: 66px;
+  margin-left: 210px;
+  margin-top: -67px;
+  padding-top: 10px;
+   position: static;
+  z-index: 2;
+}
+
+.botaosortear{
+  margin-top: 50px;
+
+  
+}
+.texto-resultado{
+  border: 1px solid #F2CB83;
+  height: 71px;
+  position: absolute;
+  margin-top: -18px;
+  width: 550px;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-top: 15px;
+    position: static;
+  z-index: 2;
+}
+
+.imagem-resultado{
+  margin-top: -15px;
+  margin-left: 420px;
+  position: absolute;
+  height: 65px;
+  z-index: 1;
+
+}
+
+
+ a{
+  text-decoration: none;
+  font-family: Inknut Antiqua;
+  color:#F2CB83
+ }
+ a:hover{
+  
+  text-decoration: none;
+  color:#F2CB83;
+  text-shadow: 0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD;
+ }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 700px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border: 2px solid #F2CB83;
+  background-color:#06496C;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 10px;
+  z-index: 5;
+   max-height: 100px; 
+  overflow-y: auto;
+  border-radius: 3px;
+}
+.dropdown-content label{
+  margin-top: 6px;
+  padding: 5px 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: inline-block;
+  position: absolute;
+}
+
+.dropbtn {
+  background-color: #06496C; /* Cor de fundo do botão */
+  border: 1px solid #F2CB83;
+  border-radius: 3px; 
+}
+
+/* Muda a cor de fundo do botão quando você passa o mouse sobre ele */
+.dropbtn:hover, .dropbtn:focus {
+  color:#F2CB83;
+  text-shadow: 0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD, 0px 0px 10px #0F7DAD,0px 0px 10px #0F7DAD;
+}
+
+#mapa{
+  border: 2px solid #F2CB83;
+  position: relative;
+  margin-top: -690px;
+  margin-left: 980px;
+  padding-top: 150PX;
+  height: 690px;
+  padding-inline: 40px;
+  box-shadow: 1px 10px 10px black;
+
+}
+.mapa-imagem {
+  width: 80px;
+  height: 60px;
+}
+
+.mapa-label{
+  margin: 25px;
+}
+
+#checkboxContainer{
+
+margin-top: -650px ;
+margin-left: 1100px;
+border: 2px solid #F2CB83;
+ padding: 10px ;
+  
+}
+
+</style>
+</head>
+
+<body>
+
+  <div class="menu d-flex justify-content-start">
+    <span class="menutexto"><a href="escolher_civ_age.html" >SORTEADOR DE CIVILIZAÇÕES</a></span>
+    <span class="menutexto"><a href="escolher_mapas_age.html">SORTEADOR DE BIOMAS</a></span>
+  </div>
+
+<div class="paginaprincipal">
+  <div class="menuzinho p-2">
+  <p>SELECIONE A QUANTIDADE DE JOGADORES:</p>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="1" name="njogadores" value="1">
+      <label for="1">1 (UM)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="2" name="njogadores" value="2">
+      <label for="2">2 (DOIS)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="3" name="njogadores" value="3">
+      <label for="3">3 (TRÊS)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="4" name="njogadores" value="4">
+      <label for="4">4 (QUATRO)</label><br>
+    </div >
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="5" name="njogadores" value="5">
+      <label for="5">5 (CINCO)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="6" name="njogadores" value="6">
+      <label for="6">6 (SEIS)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="7" name="njogadores" value="7">
+      <label for="7">7 (SETE)</label><br>
+    </div>
+    <div class="inputnome mt-2 pl-3 pt-2">
+      <input type="radio" id="8" name="njogadores" value="8">
+      <label for="8">8 (OITO)</label><br>
+
+    </div>
+    <button class="botaonjogadores mt-3" onclick="criarCampos()">ENVIAR</button>
+    <div class="botaosortear" id="sortear" class=""></div>
+   
+  <div class="principal">
+
+    <div  id="jogadores">
+      
+    </div>
+   
+  </div>
+  </div>
+  
+    
+  </div>
+</div>
+<script>
+  var civilizacoes = [
+  'CHINA', 'INGLESES', 'SACRO IMPERIO ROMANO', 'DELHI', 'OTOMANOS', 'MALIANOS', 'FRANCESES', 'JAPONESES', 'BIZANTINOS', 'MONGOL', 'RUSSA', 'JOANA DARK', 'AIUBIDAS', 'ORDEM DO DRAGÃO', 'A LENDA DE SUSHI', 'ABASSIDA'
+];
+
+var imagensCivilizacoes = {
+  'CHINA': 'china.png',
+  'INGLESES': 'ingles.png',
+  'SACRO IMPERIO ROMANO': 'hre.png',
+  'DELHI': 'delhi.png',
+  'OTOMANOS': 'otomano.png',
+  'MALIANOS': 'maliano.png',
+  'FRANCESES': 'frança.png',
+  'JAPONESES': 'japao.png',
+  'BIZANTINOS': 'bizantino.png',
+  'MONGOL': 'mongol.png',
+  'RUSSA': 'russo.png',
+  'JOANA DARK': 'joana.png',
+  'AIUBIDAS': 'aiubidas.png',
+  'ORDEM DO DRAGÃO': 'ordem_do_dragao.png',
+  'A LENDA DE SUSHI': 'a_lenda_de_sushi.png',
+  'ABASSIDA': 'abassida.png'
+};
+
+function criarCampos() {
+  var njogadores = document.querySelector('input[name="njogadores"]:checked').value;
+  var divJogadores = document.getElementById('jogadores');
+  divJogadores.innerHTML = '';
+
+  if (njogadores > 0 && njogadores <= 8) {
+    for (var i = 0; i < njogadores; i++) {
+      var input = document.createElement('input');
+      input.type = 'text';
+      input.id = 'jogador' +  i;
+      input.placeholder = 'Nome do jogador ' + (i + 1);
+      input.className = 'nomejogadores'; 
+      input.oninput = function(e) {
+        e.target.value = e.target.value.toUpperCase();
+      };
+      divJogadores.appendChild(input);
+      // Cria um menu dropdown para as civilizações
+      var dropdown = document.createElement('div');
+      dropdown.className = 'dropdown';
+      var dropbtn = document.createElement('button');
+      dropbtn.className = 'dropbtn';
+      dropbtn.textContent = 'CIV NÃO DESEJADAS';
+      dropdown.appendChild(dropbtn);
+      var dropdownContent = document.createElement('div');
+      dropdownContent.className = 'dropdown-content';
+      dropdown.appendChild(dropdownContent);
+      // Adiciona uma caixa de seleção para cada civilização
+      for (var j = 0; j < civilizacoes.length; j++) {
+        var div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = 'civilizacao' + i + '_' + j;
+        checkbox.value = civilizacoes[j];
+        checkbox.style.transform = 'scale(1.5)'; // Aumenta o tamanho do checkbox
+        var label = document.createElement('label');
+        label.htmlFor = 'civilizacao' + i + '_' + j; // Adiciona o índice do jogador ao htmlFor
+        label.appendChild(document.createTextNode(civilizacoes[j]));
+        var img = document.createElement('img');
+        img.src = imagensCivilizacoes[civilizacoes[j]]; 
+        img.style.width = '45px'; img.style.height = '30px'; img.style.margin.top = '-3px';
+        div.appendChild(checkbox);
+        div.appendChild(label);
+        div.appendChild(img);
+        dropdownContent.appendChild(div);
+      }
+      divJogadores.appendChild(dropdown);
+      var resultado = document.createElement('div');
+      resultado.id = 'resultado' + i;
+      resultado.className = 'resultado'; 
+      var textoResultado = document.createElement('span');
+      textoResultado.className = 'texto-resultado';
+      resultado.appendChild(textoResultado);
+      var imagemResultado = document.createElement('img');
+      imagemResultado.className = 'imagem-resultado';
+      resultado.appendChild(imagemResultado);
+      divJogadores.appendChild(resultado);
+      divJogadores.appendChild(document.createElement('br'));
+    }
+    var divSortear = document.getElementById('sortear');
+    divSortear.innerHTML = ''; // Limpa o conteúdo do elemento 'sortear'
+    var botao = document.createElement('button');
+    botao.innerHTML = 'SORTEAR CIVILIZAÇÕES';
+    botao.className = 'botaonjogadores2';
+    botao.onclick = function() {
+      var civilizacoesSorteadas = [];
+      for (var i = 0; i < njogadores; i++) {
+        var jogador = document.getElementById('jogador' + i).value;
+        var civilizacoesNaoDesejadas = [];
+        for (var j = 0; j < civilizacoes.length; j++) {
+          if (document.getElementById('civilizacao' + i + '_' + j).checked) { // Adiciona o índice do jogador ao ID
+            civilizacoesNaoDesejadas.push(civilizacoes[j]);
+          }
+        }
+        var civilizacoesPossiveis = civilizacoes.filter(civ => !civilizacoesNaoDesejadas.includes(civ) && (!document.getElementById('checkboxRepetirSim').checked || !civilizacoesSorteadas.includes(civ)));
+        var civilizacaoSorteada = civilizacoesPossiveis[Math.floor(Math.random() * civilizacoesPossiveis.length)];
+        civilizacoesSorteadas.push(civilizacaoSorteada);
+        document.getElementById('resultado' + i).getElementsByClassName('texto-resultado')[0].innerHTML = jogador + ' VAI COM A CIV: ' +civilizacaoSorteada;
+        document.getElementById('resultado' + i).getElementsByClassName('imagem-resultado')[0].src = imagensCivilizacoes[civilizacaoSorteada];
+      }};
+    divSortear.appendChild(botao);
+    // Mostra os checkboxes para habilitar/desabilitar a repetição de civilizações
+    document.getElementById('checkboxContainer').style.display = 'block';
+  } 
+}
+
+// Adiciona os checkboxes para habilitar/desabilitar a repetição de civilizações
+var checkboxContainer = document.createElement('div');
+checkboxContainer.id = 'checkboxContainer';
+checkboxContainer.style.position = 'absolute';
+checkboxContainer.style.top = ''; // Ajuste conforme necessário
+checkboxContainer.style.left = ''; // Ajuste conforme necessário
+checkboxContainer.style.display = 'none'; // Esconde os checkboxes inicialmente
+var repetirCivs = document.createElement('p');
+repetirCivs.textContent = 'REPETIR CIVS?';
+checkboxContainer.appendChild(repetirCivs);
+var checkboxRepetirSim = document.createElement('input');
+checkboxRepetirSim.type = 'checkbox';
+checkboxRepetirSim.id = 'checkboxRepetirSim';
+checkboxRepetirSim.onclick = function() {
+  document.getElementById('checkboxRepetirNao').checked = !this.checked;
+};
+var labelRepetirSim = document.createElement('label');
+labelRepetirSim.htmlFor = 'checkboxRepetirSim';
+labelRepetirSim.appendChild(document.createTextNode(' NÃO '));
+checkboxContainer.appendChild(checkboxRepetirSim);
+checkboxContainer.appendChild(labelRepetirSim);
+var checkboxRepetirNao = document.createElement('input');
+checkboxRepetirNao.type = 'checkbox';
+checkboxRepetirNao.id = 'checkboxRepetirNao';
+checkboxRepetirNao.onclick = function() {
+  document.getElementById('checkboxRepetirSim').checked = !this.checked;
+};
+var labelRepetirNao = document.createElement('label');
+labelRepetirNao.htmlFor = 'checkboxRepetirNao';
+labelRepetirNao.appendChild(document.createTextNode(' SIM'));
+checkboxContainer.appendChild(checkboxRepetirNao);
+checkboxContainer.appendChild(labelRepetirNao);
+document.body.appendChild(checkboxContainer);
+</script>
+
+
+
+
+
+
+</body>
+</html>
+
+

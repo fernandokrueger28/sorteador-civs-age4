@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<img id="colinas_de_calcario" src="colinas_de_calcario.png">
+<img id="deserto_de_gobi" src="deserto_de_gobi.png">
+<img id="deserto_do_saara" src="deserto_do_saara.png">
+<img id="estepes" src="estepes.png">
+<img id="mediterraneo" src="mediterraneo.png">
+<img id="primavera_japonesa" src="primavera_japonesa.png">
+<img id="savana" src="savana.png">
+<img id="temperado_europeu" src="temperado_europeu.png">
+<img id="temperado_asiatico" src="temperado_asiatico.png">
+
+    <button onclick="iniciarSorteio()">Iniciar Sorteio</button>
+    <p id="resultado"></p>
+
+    <script>
+        var imagens = ["colinas_de_calcario", "deserto_de_gobi", "deserto_do_saara", "estepes", "mediterraneo", "primavera_japonesa", "savana", "temperado_europeu", "temperado_asiatico"];
+
+        function iniciarSorteio() {
+            // Limpar os resultados anteriores
+            for (var i = 0; i < imagens.length; i++) {
+                document.getElementById(imagens[i]).style.border = "none";
+            }
+            document.getElementById("resultado").textContent = "";
+
+            var indice = 0;
+            var intervalo = 50; // Iniciar com um intervalo de 50ms
+            var sorteio;
+            var tempoTotal = Math.random() * 5000 + 5000; // Tempo total do sorteio entre 5 e 10 segundos
+            var tempoPassado = 0;
+
+            function alterarBorda() {
+                // Remover a borda da imagem anterior
+                if (indice > 0) {
+                    document.getElementById(imagens[indice - 1]).style.border = "none";
+                } else if (indice === 0) {
+                    document.getElementById(imagens[imagens.length - 1]).style.border = "none";
+                }
+
+                // Adicionar borda à imagem atual
+                document.getElementById(imagens[indice]).style.border = "5px solid red";
+
+                // Incrementar o índice
+                indice++;
+
+                // Se o índice for maior que o número de imagens, reiniciar o índice
+                if (indice >= imagens.length) {
+                    indice = 0;
+                }
+
+                // Incrementar o tempo passado
+                tempoPassado += intervalo;
+
+                // Se o tempo passado for maior que o tempo total, parar o sorteio
+                if (tempoPassado >= tempoTotal) {
+                    clearInterval(sorteio);
+                    // Calcular o índice do resultado
+                    var indiceResultado = indice - 1;
+                    if (indiceResultado < 0) {
+                        indiceResultado = imagens.length - 1;
+                    }
+                    // Limpar a borda vermelha da última imagem
+                    document.getElementById(imagens[indice]).style.border = "none";
+                    document.getElementById(imagens[indiceResultado]).style.border = "5px solid green";
+                    //document.getElementById("resultado").textContent = "O resultado do sorteio é: " + imagens[indiceResultado];
+                    alert("O resultado do sorteio é: " + imagens[indiceResultado]);
+                } else {
+                    // Ajustar o intervalo para desacelerar a mudança de borda
+                    intervalo = 50 + (tempoPassado / tempoTotal) * 950; // Ajustar para que o intervalo seja uma função quadrática do tempo passado
+                    clearInterval(sorteio);
+                    sorteio = setInterval(alterarBorda, intervalo);
+                }
+            }
+
+            // Iniciar o sorteio
+            sorteio = setInterval(alterarBorda, intervalo);
+        }
+    </script>
+</body>
+</html>
